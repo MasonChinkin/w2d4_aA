@@ -15,7 +15,7 @@ def second_anagram?(str1,str2)
 	return true if str2_arr.length == 0
 end
 
-# O(n^2) time, O(1) space
+# O(n log n) time, O(1) space
 def third_anagram?(str1, str2)
 	str1.chars.sort == str2.chars.sort
 end
@@ -32,7 +32,7 @@ def fourth_anagram?(str1, str2)
 end
 
 # with only 1 hash
-# O(n) time, O(n) space
+# O(n) time, O(1) space
 def fifth_anagram?(str1, str2)
 	hash = Hash.new(0)
 
@@ -40,6 +40,7 @@ def fifth_anagram?(str1, str2)
 	str2.each_char {|char| hash[char] -= 1}
 
 	hash.values.all? {|v| v == 0}
+	# hash.all? { |k , v| v == 0 }
 end
 
 if __FILE__ == $PROGRAM_NAME
